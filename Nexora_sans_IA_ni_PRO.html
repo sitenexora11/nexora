@@ -1,0 +1,2504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090c">
+<title>Nexora — Bienvenue</title>
+
+<style>
+/* =================================
+   1. CONFIGURATION GÉNÉRALE
+================================= */
+
+:root {
+    --bg: #08090c;
+    --panel: rgba(255,255,255,0.045);
+    --panel-hover: rgba(255,255,255,0.085);
+    --text: #f5f5f7;
+    --muted: #9899a3;
+    --border: rgba(255,255,255,0.11);
+    --accent: #ffffff;
+    --radius: 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Fond lumineux subtil.
+   Plus tard, remplace le gradient par ton image si tu le souhaites. */
+
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background: #00152E;
+        ),
+        linear-gradient(
+            135deg,
+            #031329 0%,
+            #041a36 48%,
+            #061b35 75%,
+            #031329 100%
+        );
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(8, 9, 12, 0.05),
+        rgba(8, 9, 12, 0.28)
+    );
+    pointer-events: none;
+}
+/* =================================
+   2. BARRE DE NAVIGATION
+================================= */
+
+.site-header {
+    width: 100%;
+    padding: 18px 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 10;
+}
+
+.account-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.account-button {
+    min-height: 39px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(90, 155, 255, 0.35);
+    background: rgba(40, 115, 235, 0.12);
+    color: #8bbcff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.account-button:hover {
+    background: rgba(40, 115, 235, 0.25);
+    border-color: rgba(110, 175, 255, 0.75);
+    color: #c5e0ff;
+    transform: translateY(-1px);
+}
+
+.account-button:active {
+    transform: scale(0.97);
+}
+
+.signup-button {
+    background: #2878ee;
+    color: white;
+    border-color: #2878ee;
+    box-shadow: 0 4px 20px rgba(40, 120, 238, 0.2);
+}
+
+.signup-button:hover {
+    background: #428bfa;
+    color: white;
+    border-color: #428bfa;
+}
+
+
+header {
+    width: 100%;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px;
+    max-width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(18,19,23,0.78);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 10px 45px rgba(0,0,0,0.18);
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 17px;
+    min-height: 42px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    color: #b4b5be;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background 0.28s ease,
+        color 0.28s ease,
+        border-color 0.28s ease,
+        transform 0.22s ease;
+}
+
+.nav-button:hover {
+    color: white;
+    background: rgba(255,255,255,0.07);
+}
+
+.nav-button:active {
+    transform: scale(0.95);
+}
+
+.nav-button.active {
+    background: #f3f3f5;
+    color: #101115;
+    border-color: rgba(255,255,255,0.3);
+    box-shadow: 0 2px 12px rgba(255,255,255,0.07);
+}
+
+.nav-button svg {
+.pro-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 6px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #e8d7a1, #b99a55);
+    color: #17140d;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    line-height: 1.2;
+    box-shadow: 0 0 12px rgba(218, 187, 111, 0.12);
+}
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* =================================
+   3. CONTENU PRINCIPAL
+================================= */
+
+main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    display: none;
+    width: 100%;
+    flex: 1;
+    animation: pageIn 0.5s cubic-bezier(.2,.75,.25,1) both;
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(13px);
+        filter: blur(3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* =================================
+   4. ACCUEIL
+================================= */
+
+.home {
+    width: 100%;
+    min-height: 650px;
+    padding: 80px 24px 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #b7b8c1;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "";
+    width: 23px;
+    height: 1px;
+    background: rgba(255,255,255,0.32);
+}
+
+.hero-title {
+    font-size: clamp(58px, 11vw, 116px);
+    line-height: 0.98;
+    letter-spacing: -0.085em;
+    font-weight: 650;
+    text-wrap: balance;
+    margin-bottom: 28px;
+}
+
+.hero-title span {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 12px;
+    text-decoration-color: rgba(255,255,255,0.72);
+}
+
+.hero-description {
+    max-width: 570px;
+    color: #a8a9b3;
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 1.85;
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Boutons */
+
+.button {
+    min-height: 49px;
+    padding: 0 23px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition:
+        transform 0.22s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.button svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.25s ease;
+}
+
+.button:hover svg {
+    transform: translateX(3px);
+}
+
+.button:active {
+    transform: scale(0.96);
+}
+
+.button-primary {
+    color: #101115;
+    background: #f5f5f7;
+    box-shadow: 0 5px 25px rgba(255,255,255,0.06);
+}
+
+.button-primary:hover {
+    background: white;
+    box-shadow: 0 8px 32px rgba(255,255,255,0.13);
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    color: #eeeef1;
+    background: rgba(255,255,255,0.045);
+    border-color: rgba(255,255,255,0.16);
+}
+
+.button-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+/* Petit indicateur en bas de l'accueil */
+
+.scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #777984;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 30px;
+    height: 1px;
+    background: #555761;
+}
+
+/* =================================
+   5. PAGES EN CONSTRUCTION
+================================= */
+
+.coming-soon {
+    width: 100%;
+    flex: 1;
+    min-height: 560px;
+    padding: 80px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.soon-card {
+    width: min(100%, 650px);
+    padding: 62px 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 32px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.055),
+        rgba(255,255,255,0.018)
+    );
+    box-shadow: 0 25px 100px rgba(0,0,0,0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.soon-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.055);
+    color: #eeeeF3;
+}
+
+.soon-icon svg {
+    width: 25px;
+    height: 25px;
+}
+
+.soon-label {
+    color: #a6a7b0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+}
+
+.soon-card h1 {
+    font-size: clamp(34px, 6vw, 55px);
+    line-height: 1.1;
+    letter-spacing: -0.055em;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.soon-card p {
+    max-width: 420px;
+    margin: 0 auto 28px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 999px;
+    color: #d3d3da;
+    background: rgba(255,255,255,0.035);
+    font-size: 11px;
+    letter-spacing: 0.3px;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #b9bac3;
+    box-shadow: 0 0 10px rgba(255,255,255,0.25);
+}
+
+/* =================================
+   6. FOOTER
+================================= */
+
+footer {
+    width: 100%;
+    padding: 24px 32px;
+    border-top: 1px solid rgba(255,255,255,0.09);
+    background: rgba(7,8,11,0.55);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.footer-inner {
+    width: min(100%, 1180px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.footer-copy {
+    color: #777984;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.footer-copy strong {
+    color: #c4c5cd;
+    font-weight: 600;
+}
+
+.footer-center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-label {
+    margin-right: 5px;
+    color: #a2a3ad;
+    font-size: 11px;
+}
+
+.social-link {
+    width: 37px;
+    height: 37px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #b8b9c2;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 50%;
+    background: rgba(255,255,255,0.035);
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.social-link:hover {
+    color: white;
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.28);
+    transform: translateY(-3px);
+}
+
+.social-link svg {
+    width: 17px;
+    height: 17px;
+}
+
+.footer-email {
+    color: #b8b9c2;
+    text-decoration: none;
+    font-size: 11px;
+    transition: color 0.2s ease;
+}
+
+.footer-email:hover {
+    color: white;
+}
+
+/* =================================
+   7. ACCESSIBILITÉ
+================================= */
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =================================
+   8. ADAPTATION AUX PETITS ÉCRANS
+================================= */
+
+@media (max-width: 1050px) {
+    header {
+        padding: 20px 15px 0;
+    }
+
+    .navigation {
+        flex-wrap: wrap;
+        border-radius: 25px;
+        max-width: 850px;
+    }
+
+    .nav-button {
+        padding: 11px 14px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 620px) {
+    header {
+        padding: 14px 10px 0;
+    }
+
+    .navigation {
+        width: 100%;
+        gap: 4px;
+        padding: 6px;
+        border-radius: 22px;
+    }
+
+    .nav-button {
+        flex: 1 1 calc(33.333% - 6px);
+        padding: 10px 5px;
+        min-height: 40px;
+        font-size: 11px;
+        gap: 5px;
+    }
+
+    .nav-button svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .home {
+        min-height: 580px;
+        padding: 75px 20px 90px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+        margin-bottom: 27px;
+    }
+
+    .hero-title {
+        font-size: clamp(52px, 16vw, 80px);
+        margin-bottom: 25px;
+    }
+
+    .hero-title span {
+        text-underline-offset: 8px;
+        text-decoration-thickness: 2px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .button {
+        min-height: 46px;
+        padding: 0 17px;
+        font-size: 12px;
+    }
+
+    .coming-soon {
+        min-height: 470px;
+        padding: 55px 16px;
+    }
+
+    .soon-card {
+        padding: 45px 20px;
+        border-radius: 25px;
+    }
+
+    footer {
+        padding: 22px 18px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 17px;
+    }
+
+    .footer-center {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+.site-header {
+    padding: 12px 10px 0;
+    gap: 12px;
+}
+
+.account-actions {
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.account-button {
+    padding: 0 11px;
+    font-size: 11px;
+}
+
+.navigation {
+    width: 100%;
+}
+
+}
+
+/* NEXORA PRO */
+
+.pro-page {
+    width: 100%;
+    padding: 75px 24px 100px;
+    text-align: center;
+    animation: pageIn 0.5s ease both;
+}
+
+.pro-eyebrow,
+.benefits-eyebrow {
+    color: #d9c28c;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.pro-crown {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    margin-right: 7px;
+    border: 1px solid rgba(217,194,140,.35);
+    border-radius: 9px;
+    background: rgba(217,194,140,.08);
+}
+
+.pro-title {
+    margin: 24px 0 20px;
+    font-size: clamp(42px, 7vw, 76px);
+    font-weight: 650;
+    letter-spacing: -0.065em;
+    line-height: 1.06;
+}
+
+.pro-title span {
+    color: #c6b17c;
+}
+
+.pro-description {
+    max-width: 510px;
+    margin: 0 auto 38px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.price-card {
+    width: min(100%, 410px);
+    margin: 0 auto;
+    padding: 29px;
+    text-align: left;
+    border: 1px solid rgba(217,194,140,.28);
+    border-radius: 27px;
+    background:
+        radial-gradient(ellipse at top right,
+            rgba(178,148,80,.12), transparent 65%),
+        rgba(255,255,255,.045);
+    box-shadow: 0 25px 90px rgba(0,0,0,.22);
+    backdrop-filter: blur(18px);
+}
+
+.price-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.price-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #d8d8df;
+}
+
+.price-tag {
+    padding: 5px 8px;
+    border: 1px solid rgba(217,194,140,.3);
+    border-radius: 7px;
+    color: #d9c28c;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.price {
+    margin-top: 28px;
+}
+
+.price-number {
+    font-size: 48px;
+    font-weight: 650;
+    letter-spacing: -2.5px;
+}
+
+.price-note {
+    margin-top: 7px;
+    color: #92939e;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.buy-button {
+    width: 100%;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #e5d3a0, #c1a45e);
+    color: #19150b;
+    box-shadow: 0 7px 25px rgba(193,164,94,.12);
+}
+
+.buy-button:hover {
+    background: linear-gradient(135deg, #f1e1b3, #d4b874);
+    transform: translateY(-2px);
+}
+
+.buy-notice {
+    margin-top: 18px;
+    text-align: center;
+    color: #e4d5ab;
+    font-size: 13px;
+}
+
+.benefits-section {
+    width: min(100%, 1000px);
+    margin: 95px auto 0;
+}
+
+.benefits-section h2 {
+    margin: 17px 0 15px;
+    font-size: clamp(28px, 4vw, 42px);
+    letter-spacing: -1.5px;
+}
+
+.benefits-intro {
+    max-width: 510px;
+    margin: 0 auto 32px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    text-align: left;
+}
+
+.benefit-card {
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 21px;
+    background: rgba(255,255,255,.035);
+    transition: transform .25s ease,
+                background .25s ease,
+                border-color .25s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,.065);
+    border-color: rgba(217,194,140,.28);
+}
+
+.benefit-number {
+    color: #c6b17c;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.benefit-card h3 {
+    margin: 19px 0 9px;
+    font-size: 16px;
+}
+
+.benefit-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+@media (max-width: 620px) {
+    .pro-page {
+        padding: 55px 17px 70px;
+    }
+
+    .price-card {
+        padding: 23px;
+    }
+
+    .benefits-section {
+        margin-top: 65px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CONNEXION ET INSCRIPTION */
+
+.auth-page {
+    width: 100%;
+    flex: 1;
+    min-height: 560px;
+    padding: 65px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card {
+    width: min(100%, 460px);
+    padding: 38px;
+    border: 1px solid var(--border);
+    border-radius: 27px;
+    background: rgba(18,19,26,.78);
+    box-shadow: 0 25px 90px rgba(0,0,0,.25);
+    backdrop-filter: blur(20px);
+}
+
+.auth-eyebrow {
+    color: #8bbcff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 22px;
+}
+
+.auth-card h1 {
+    font-size: clamp(30px, 5vw, 40px);
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+}
+
+.auth-description {
+    margin: 14px 0 28px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.auth-card label {
+    margin-top: 7px;
+    color: #d8d9e0;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.auth-card input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 12px;
+    background: rgba(255,255,255,.045);
+    color: white;
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: border-color .2s ease,
+                background .2s ease;
+}
+
+.auth-card input::placeholder {
+    color: #777984;
+}
+
+.auth-card input:focus {
+    border-color: #5598ff;
+    background: rgba(255,255,255,.065);
+}
+
+.auth-submit {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 14px;
+    border: 1px solid #2878ee;
+    border-radius: 12px;
+    background: #2878ee;
+    color: white;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: background .2s ease,
+                transform .2s ease;
+}
+
+.auth-submit:hover {
+    background: #428bfa;
+    transform: translateY(-1px);
+}
+
+.auth-submit:active {
+    transform: scale(.98);
+}
+
+.auth-message {
+    margin-top: 18px;
+    color: #a9caff;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+@media (max-width: 620px) {
+    .auth-page {
+        padding: 40px 16px;
+    }
+
+    .auth-card {
+        padding: 27px 21px;
+    }
+}
+
+/* LOGO NEXORA */
+
+.nexora-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: clamp(46px, 9vw, 94px);
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    line-height: 1.2;
+    color: #f5f7ff;
+    text-shadow: 0 0 20px rgba(215, 230, 255, 0.12);
+    margin-bottom: 28px;
+}
+
+
+.nexora-logo .nexora-o {
+    display: inline-block;
+    position: relative;
+    color: #20cfff;
+    text-decoration: none;
+    text-shadow:
+        0 0 5px rgba(32, 207, 255, 0.65),
+        0 0 15px rgba(32, 207, 255, 0.3);
+    animation: none;
+}
+
+
+    50% {
+        text-shadow:
+            0 0 8px rgba(32, 207, 255, 1),
+            0 0 22px rgba(32, 207, 255, 0.9),
+            0 0 42px rgba(32, 207, 255, 0.5);
+    }
+}
+
+/* Retire le soulignement du titre précédent */
+.nexora-logo span {
+    text-decoration: none;
+}
+
+@media (max-width: 620px) {
+    .nexora-logo {
+        font-size: clamp(36px, 10vw, 60px);
+        letter-spacing: 0.09em;
+    }
+}
+
+/* FOOTER PREMIUM NEXORA */
+
+.nexora-footer {
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+    color: #e8f1ff;
+    background:
+        radial-gradient(
+            ellipse at 15% 100%,
+            rgba(0, 95, 210, 0.13),
+            transparent 55%
+        ),
+        linear-gradient(
+            110deg,
+            #031329 0%,
+            #041a36 52%,
+            #03152c 100%
+        );
+    border-top: 1px solid rgba(26, 132, 255, 0.35);
+}
+
+.footer-top-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #087fff,
+        #16d6ff,
+        #087fff,
+        transparent
+    );
+    opacity: 0.75;
+}
+
+.footer-layout {
+    width: min(100%, 1450px);
+    margin: 0 auto;
+    padding: 38px 34px;
+    display: grid;
+    grid-template-columns: 1.15fr 1.55fr .75fr .85fr 1fr;
+    align-items: start;
+    gap: 30px;
+}
+
+.footer-brand {
+    padding-top: 12px;
+}
+
+.footer-brand-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-n {
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 800;
+    font-style: italic;
+    letter-spacing: -6px;
+    background: linear-gradient(
+        135deg,
+        #24e1ff,
+        #087cff 60%,
+        #0064d9
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.footer-word {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    white-space: nowrap;
+    color: #f2f7ff;
+}
+
+.footer-word span {
+    color: #1bd5ff;
+    text-shadow: 0 0 10px rgba(27,213,255,.4);
+}
+
+.footer-tagline {
+    margin-top: 13px;
+    color: #9dc9ff;
+    font-size: 8px;
+    letter-spacing: 2.6px;
+    white-space: nowrap;
+}
+
+.footer-presentation h3 {
+    margin-bottom: 9px;
+    color: #f5f8ff;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.footer-presentation p {
+    max-width: 270px;
+    margin-bottom: 15px;
+    color: #a9c4e6;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 36px;
+    padding: 0 17px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(100deg, #079aff, #0874ee);
+    color: white;
+    font: inherit;
+    font-size: 10px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: transform .22s ease,
+                box-shadow .22s ease;
+}
+
+.footer-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 22px rgba(0,125,255,.3);
+}
+
+.footer-cta span {
+    font-size: 16px;
+}
+
+.footer-column {
+    min-height: 100px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(61, 142, 231, .22);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-column h4 {
+    margin-bottom: 3px;
+    color: #20cfff;
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.footer-column button,
+.footer-column a {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #c3d6ed;
+    font-family: inherit;
+    font-size: 10px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color .2s ease;
+}
+
+.footer-column button:hover,
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-social {
+    min-height: 100px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(61, 142, 231, .22);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-social-icons {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 10px 0 23px;
+}
+
+.footer-social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 19px;
+    height: 24px;
+    color: #36caff;
+    font-size: 19px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease, color .2s ease;
+}
+
+.footer-social-icons a:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+.footer-contact {
+    color: #a9c4e6;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.footer-contact:hover {
+    color: white;
+}
+
+.footer-copyright {
+    margin-top: 16px;
+    color: #86a4c9;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+@media (max-width: 1050px) {
+    .footer-layout {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 30px 22px;
+    }
+
+    .footer-social {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 620px) {
+    .footer-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 30px 20px;
+        gap: 28px 18px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-presentation {
+        grid-column: 1 / -1;
+    }
+
+    .footer-column,
+    .footer-social {
+        padding-left: 12px;
+    }
+
+    .footer-word {
+        font-size: 17px;
+        letter-spacing: 4px;
+    }
+}
+/* LOGO EN HAUT A DROITE */
+
+.header-brand {
+    position: fixed;
+    top: 12px;
+    left: 15px;
+    right: auto;
+    z-index: 1000;
+}
+.header-brand img {
+    display: block;
+    width: 145px;
+    height: auto;
+    object-fit: contain;
+}
+@media (max-width: 620px) {
+    .header-brand {
+    top: 12px;
+    left: 12px;
+    right: auto;
+}
+
+    .header-brand img {
+        width: 95px;
+    }
+}
+css
+/* ===== NEXORA AI ===== */
+
+
+/* ===== NEXORA AI — STYLE FUTURISTE ===== */
+
+.nexora-ai {
+    position: relative;
+    isolation: isolate;
+    width: min(900px, 92%);
+    margin: 38px auto;
+    padding: 26px;
+    overflow: hidden;
+    color: #f4f7ff;
+    font-family: inherit;
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(0, 112, 255, 0.17), transparent 42%),
+        radial-gradient(ellipse at 0% 100%, rgba(0, 195, 255, 0.08), transparent 38%),
+        linear-gradient(145deg, #071225, #030916 70%);
+    border: 1px solid rgba(50, 155, 255, 0.25);
+    border-radius: 26px;
+    box-shadow:
+        0 0 45px rgba(0, 100, 255, 0.09),
+        0 24px 70px rgba(0, 0, 0, 0.25);
+}
+
+.nexora-ai::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    width: 84%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(36, 155, 255, 0.8),
+        transparent
+    );
+    pointer-events: none;
+}
+
+.ai-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.ai-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border: 1px solid rgba(50, 190, 255, 0.55);
+    border-radius: 18px;
+    background: linear-gradient(
+        145deg,
+        rgba(0, 130, 255, 0.24),
+        rgba(0, 35, 85, 0.55)
+    );
+    color: #55d8ff;
+    font-size: 32px;
+    box-shadow:
+        0 0 25px rgba(0, 145, 255, 0.2),
+        inset 0 0 18px rgba(0, 145, 255, 0.08);
+}
+
+.ai-header h1 {
+    margin: 0 0 5px;
+    font-size: clamp(25px, 4vw, 35px);
+    letter-spacing: -0.7px;
+    text-shadow: 0 0 22px rgba(30, 145, 255, 0.15);
+}
+
+.ai-header p {
+    margin: 0;
+    color: #aebfd9;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.ai-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    padding: 8px 12px;
+    border: 1px solid rgba(66, 230, 164, 0.18);
+    border-radius: 999px;
+    background: rgba(25, 180, 120, 0.06);
+    color: #b6d8d2;
+    font-size: 12px;
+}
+
+.ai-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #42e6a4;
+    box-shadow: 0 0 12px rgba(66, 230, 164, 0.7);
+}
+
+.ai-chat {
+    min-height: 310px;
+    max-height: 470px;
+    overflow-y: auto;
+    padding: 22px;
+    border: 1px solid rgba(65, 145, 255, 0.22);
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(0, 100, 255, 0.08), transparent 50%),
+        rgba(2, 10, 25, 0.8);
+    box-shadow: inset 0 0 35px rgba(0, 65, 150, 0.07);
+    scrollbar-color: #176acb #071225;
+    scrollbar-width: thin;
+}
+
+.ai-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.ai-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border: 1px solid rgba(80, 190, 255, 0.35);
+    border-radius: 13px;
+    background: linear-gradient(135deg, #087bff, #11c8e8);
+    color: white;
+    font-weight: 800;
+    box-shadow: 0 0 18px rgba(0, 130, 255, 0.22);
+}
+
+.ai-bubble {
+    max-width: 85%;
+    padding: 16px 18px;
+    border: 1px solid rgba(90, 155, 235, 0.19);
+    border-radius: 5px 17px 17px 17px;
+    background: linear-gradient(
+        135deg,
+        rgba(30, 65, 115, 0.32),
+        rgba(10, 25, 50, 0.65)
+    );
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.ai-bubble strong {
+    color: #59d8ff;
+}
+
+.ai-bubble p {
+    margin: 9px 0 0;
+    color: #d5e2f5;
+}
+
+.ai-user {
+    justify-content: flex-end;
+}
+
+.ai-user .ai-bubble {
+    border-color: rgba(35, 160, 255, 0.35);
+    border-radius: 17px 5px 17px 17px;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 105, 235, 0.3),
+        rgba(0, 55, 125, 0.28)
+    );
+}
+
+.ai-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.ai-suggestion {
+    padding: 11px 15px;
+    border: 1px solid rgba(65, 155, 255, 0.3);
+    border-radius: 13px;
+    background: rgba(15, 65, 125, 0.2);
+    color: #dceaff;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.ai-suggestion:hover {
+    background: rgba(20, 110, 220, 0.25);
+    border-color: rgba(70, 190, 255, 0.75);
+    box-shadow: 0 0 18px rgba(0, 120, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+.ai-input-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid rgba(55, 155, 255, 0.4);
+    border-radius: 19px;
+    background: rgba(2, 10, 25, 0.88);
+    box-shadow:
+        0 0 25px rgba(0, 100, 255, 0.08),
+        inset 0 0 18px rgba(0, 75, 160, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ai-input-area:focus-within {
+    border-color: rgba(55, 185, 255, 0.8);
+    box-shadow:
+        0 0 25px rgba(0, 125, 255, 0.13),
+        inset 0 0 18px rgba(0, 75, 160, 0.06);
+}
+
+.ai-input-area textarea {
+    flex: 1;
+    min-width: 0;
+    max-height: 140px;
+    resize: vertical;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #f4f7ff;
+    font: inherit;
+    line-height: 1.6;
+}
+
+.ai-input-area textarea::placeholder {
+    color: #8298b9;
+}
+
+.ai-input-area button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    border: 1px solid rgba(130, 220, 255, 0.3);
+    border-radius: 14px;
+    background: linear-gradient(135deg, #087bff, #12c8e8);
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(0, 130, 255, 0.2);
+    transition: filter 0.2s, transform 0.2s;
+}
+
+.ai-input-area button:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+}
+
+.ai-disclaimer {
+    margin-top: 15px;
+    color: #8498b8;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .nexora-ai {
+        width: 94%;
+        margin: 22px auto;
+        padding: 15px;
+        border-radius: 21px;
+    }
+
+    .ai-header {
+        gap: 12px;
+    }
+
+    .ai-status {
+        margin-left: 0;
+    }
+
+    .ai-chat {
+        min-height: 280px;
+        padding: 14px;
+    }
+
+    .ai-message {
+        gap: 9px;
+    }
+
+    .ai-avatar {
+        width: 33px;
+        height: 33px;
+        border-radius: 11px;
+    }
+
+    .ai-bubble {
+        max-width: 95%;
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .ai-suggestions {
+        gap: 8px;
+    }
+
+    .ai-suggestion {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .ai-input-area {
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .ai-input-area button {
+        width: 41px;
+        height: 41px;
+    }
+}
+
+    .ai-status {
+        margin-left: 0;
+    }
+
+    .ai-chat {
+        padding: 14px;
+    }
+
+    .ai-bubble {
+        max-width: 95%;
+        padding: 13px;
+    }
+
+    .ai-suggestion {
+        font-size: 12px;
+    }
+}
+/* Bandeau supérieur en mode clair */
+body.light-mode .site-header {
+    background: #FFFFFF;
+    border-color: #dce4f5;
+    box-shadow: 0 4px 20px rgba(0, 21, 46, 0.08);
+}
+
+/* ===== MODE CLAIR NEXORA ===== */
+body.light-mode {
+    background: #FFFFFF;
+    color: #17213a;
+}
+
+/* Textes */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode p,
+body.light-mode label {
+    color: #17213a;
+}
+
+/* Navigation */
+body.light-mode .navigation {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: #dce4f5;
+}
+
+body.light-mode .nav-button {
+    color: #35415c;
+}
+
+body.light-mode .nav-button:hover,
+body.light-mode .nav-button.active {
+    background: #dce7ff;
+    color: #244fbd;
+}
+
+/* Boutons du compte */
+body.light-mode .account-button {
+    border-color: #cbd6ed;
+    color: #244fbd;
+}
+
+/* Contenus et cartes */
+body.light-mode .page,
+body.light-mode .nexora-ai,
+body.light-mode .ai-chat,
+body.light-mode .ai-bubble {
+    background-color: #ffffff;
+    color: #17213a;
+}
+
+/* Champs de saisie */
+body.light-mode input,
+body.light-mode textarea,
+body.light-mode select {
+    background: #ffffff;
+    color: #17213a;
+    border-color: #cbd6ed;
+}
+
+body.light-mode input::placeholder,
+body.light-mode textarea::placeholder {
+    color: #78839b;
+}
+
+/* Bouton de contraste */
+.contrast-button {
+    cursor: pointer;
+}
+
+/* Correction de la bande bleue en mode clair */
+body.light-mode .site-header {
+    background: #FFFFFF;
+    border-color: #dce4f5;
+    box-shadow: 0 4px 20px rgba(0, 21, 46, 0.08);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="grain"></div>
+
+<!-- =================================
+     NAVIGATION PRINCIPALE
+================================== -->
+
+
+<header class="site-header">
+<div class="header-brand">
+    
+<img id="nexoraLogo" src="logo.jpg" data-dark-logo="logo.jpg" data-light-logo="logo-clair.png" alt="Nexora">
+
+</div>
+    <div class="account-actions">
+        <button class="account-button login-button"
+                data-page="connexion">
+            Se connecter
+        </button>
+
+        <button class="account-button signup-button"
+                data-page="inscription">
+            Commencer / Créer un compte
+        </button>
+
+<button class="account-button contrast-button" id="contrastToggle" type="button">
+    ☀️ Mode clair
+</button>
+
+
+    </div>
+
+    <nav class="navigation" aria-label="Navigation principale">
+        <button class="nav-button active" data-page="accueil">
+            Accueil
+        </button>
+
+        <button class="nav-button" data-page="web">
+            Création web
+        </button>
+
+        <button class="nav-button" data-page="jeux">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.5 9h11a4 4 0 0 1 3.8 5.2l-.8 2.6a2.5 2.5 0 0 1-4.2 1l-2-2H9.7l-2 2a2.5 2.5 0 0 1-4.2-1l-.8-2.6A4 4 0 0 1 6.5 9z"/>
+                <path d="M7 11.5v4M5 13.5h4"/>
+                <circle cx="16.5" cy="12.5" r=".7" fill="currentColor"/>
+                <circle cx="18.5" cy="14.5" r=".7" fill="currentColor"/>
+            </svg>
+            Jeux vidéo
+        </button>
+
+        <button class="nav-button" data-page="createurs">
+            Créateurs de contenu
+        </button>
+
+        <button class="nav-button" data-page="aide">
+            Aide
+        </button>
+    </nav>
+</header>
+
+<!-- =================================
+     CONTENU DES PAGES
+================================== -->
+
+<main>
+
+    <!-- PAGE ACCUEIL -->
+
+    <section class="page active" id="accueil">
+        <div class="home">
+
+            <div class="eyebrow">
+                Bienvenue dans notre univers
+            </div>
+
+            
+
+
+            <p class="hero-description">
+                Des idées, des projets et des solutions pour donner
+                vie à vos ambitions numériques. Découvrez notre univers
+                et ce que nous préparons pour vous.
+            </p>
+
+            <div class="hero-actions">
+                <button class="button button-primary" data-go="aide">
+                    Découvrir nos services
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.8"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6"/>
+                    </svg>
+                </button>
+
+                <a class="button button-secondary"
+                   href="mailto:jflrdfq@gmail.com">
+                    Nous contacter
+                </a>
+            </div>
+
+            <div class="scroll-hint">
+                <span class="scroll-line"></span>
+                Explorez notre site
+                <span class="scroll-line"></span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PAGE AIDE -->
+
+    <section class="page" id="aide">
+        <div class="coming-soon">
+            <div class="soon-card">
+
+                <div class="soon-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.7"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M9.5 9a2.6 2.6 0 1 1 4.4 1.9c-1.2 1-1.9 1.3-1.9 3"/>
+                        <path d="M12 17.5h.01"/>
+                    </svg>
+                </div>
+
+                <div class="soon-label">Notre espace assistance</div>
+                <h1>Bientôt disponible.</h1>
+                <p>
+                    Nous préparons cet espace pour vous accompagner
+                    et répondre à vos besoins. Revenez découvrir
+                    les nouveautés prochainement.
+                </p>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    En préparation
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- PAGE NEXORA PRO -->
+
+
+
+
+    <!-- PAGE IA -->
+
+   
+
+
+    <!-- PAGE AIDE WEB -->
+
+    <section class="page" id="web">
+        <div class="coming-soon">
+            <div class="soon-card">
+
+                <div class="soon-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.7"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="16" rx="3"/>
+                        <path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>
+                        <path d="M8 13l-2 2 2 2M16 13l2 2-2 2M13.5 12l-3 6"/>
+                    </svg>
+                </div>
+
+                <div class="soon-label">Solutions numériques</div>
+                <h1>Bientôt disponible.</h1>
+                <p>
+                    Nous préparons notre espace d'aide web pour vous
+                    accompagner dans la création, l'amélioration
+                    et la découverte de vos projets en ligne.
+                </p>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    En préparation
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PAGE JEUX VIDÉO -->
+
+    <section class="page" id="jeux">
+        <div class="coming-soon">
+            <div class="soon-card">
+
+                <div class="soon-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.7"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="M6.5 9h11a4 4 0 0 1 3.8 5.2l-.8 2.6a2.5 2.5 0 0 1-4.2 1l-2-2H9.7l-2 2a2.5 2.5 0 0 1-4.2-1l-.8-2.6A4 4 0 0 1 6.5 9z"/>
+                        <path d="M7 11.5v4M5 13.5h4"/>
+                        <circle cx="16.5" cy="12.5" r=".7" fill="currentColor"/>
+                        <circle cx="18.5" cy="14.5" r=".7" fill="currentColor"/>
+                    </svg>
+                </div>
+
+                <div class="soon-label">Univers gaming</div>
+                <h1>Bientôt disponible.</h1>
+                <p>
+                    Un espace pour les joueurs, les projets gaming
+                    et les idées autour des jeux vidéo.
+                    Nous préparons quelque chose pour vous.
+                </p>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    En préparation
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PAGE CRÉATEURS DE CONTENU -->
+
+    <section class="page" id="createurs">
+        <div class="coming-soon">
+            <div class="soon-card">
+
+                <div class="soon-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.7"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <rect x="3" y="6" width="18" height="12" rx="3"/>
+                        <path d="M10 10l5 2-5 2v-4z"/>
+                        <path d="M7 3h10M7 21h10"/>
+                    </svg>
+                </div>
+
+                <div class="soon-label">Création de contenu</div>
+                <h1>Bientôt disponible.</h1>
+                <p>
+                    Nous préparons des ressources et des solutions
+                    pour les créateurs de contenu qui souhaitent
+                    développer leurs projets et leur présence en ligne.
+                </p>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    En préparation
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- PAGE CONNEXION -->
+
+<section class="page" id="connexion">
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-eyebrow">NEXORA ACCOUNT</div>
+            <h1>Content de vous revoir.</h1>
+            <p class="auth-description">
+                Entrez votre adresse e-mail pour continuer.
+            </p>
+
+            <form id="loginForm">
+                <label for="loginEmail">Adresse e-mail</label>
+                <input id="loginEmail" type="email"
+                       placeholder="vous@exemple.com"
+                       autocomplete="email" required>
+
+                <label for="loginPassword">Mot de passe</label>
+                <input id="loginPassword" type="password"
+                       placeholder="Votre mot de passe"
+                       autocomplete="current-password" minlength="8" required>
+
+                <button class="auth-submit" type="submit">
+                    Continuer
+                </button>
+            </form>
+
+            <p class="auth-message" id="loginMessage" hidden>
+                La connexion sera bientôt disponible.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE CREATION DE COMPTE -->
+
+<section class="page" id="inscription">
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-eyebrow">REJOIGNEZ NEXORA</div>
+
+            <div id="signupStep1">
+                <h1>Commençons ensemble.</h1>
+                <p class="auth-description">
+                    Entrez votre adresse e-mail pour commencer
+                    la création de votre compte.
+                </p>
+
+                <form id="signupEmailForm">
+                    <label for="signupEmail">Adresse e-mail</label>
+                    <input id="signupEmail" type="email"
+                           placeholder="vous@exemple.com"
+                           autocomplete="email" required>
+
+                    <button class="auth-submit" type="submit">
+                        Valider
+                    </button>
+                </form>
+            </div>
+
+<div id="signupCodeStep" hidden>
+    <h1>Vérifions ton adresse.</h1>
+    <p class="auth-description">
+        La vérification par e-mail sera ajoutée dans une prochaine version.
+    </p>
+
+    <form id="signupCodeForm">
+        <label for="signupCode">Code de vérification</label>
+        <input id="signupCode" type="text"
+               inputmode="numeric"
+               autocomplete="one-time-code"
+               placeholder="0000"
+               pattern="[0-9]{4}"
+               maxlength="4" required>
+
+        <p class="auth-message" id="signupCodeMessage" hidden>
+            Code incorrect. Réessaie.
+        </p>
+
+        <button class="auth-submit" type="submit">
+            Vérifier le code
+        </button>
+    </form>
+</div>
+
+            <div id="signupStep2" hidden>
+                <h1>Bienvenue parmi nous.</h1>
+                <p class="auth-description">
+                    Choisissez votre pseudo et votre mot de passe.
+                </p>
+
+                <form id="signupDetailsForm">
+                    <label for="signupUsername">Votre pseudo</label>
+                    <input id="signupUsername" type="text"
+                           placeholder="Votre pseudo"
+                           autocomplete="username"
+                           minlength="3" maxlength="24" required>
+
+                    <label for="signupPassword">Votre mot de passe</label>
+                    <input id="signupPassword" type="password"
+                           placeholder="Choisissez un mot de passe"
+                           autocomplete="new-password"
+                           minlength="8" required>
+
+                    <button class="auth-submit" type="submit">
+                        Terminer
+                    </button>
+                </form>
+
+                <p class="auth-message" id="signupMessage" hidden>
+                    Votre formulaire est prêt.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+
+<!-- =================================
+     PIED DE PAGE
+================================== -->
+
+
+<!-- PIED DE PAGE NEXORA -->
+
+<footer class="nexora-footer">
+    <div class="footer-top-line"></div>
+
+    <div class="footer-layout">
+
+        <!-- LOGO -->
+        <div class="footer-brand">
+            <div class="footer-brand-name">
+                <span class="footer-n">N</span>
+                <span class="footer-word">
+                    NEX<span>O</span>RA
+                </span>
+            </div>
+
+            <p class="footer-tagline">
+                CRÉE · DÉVELOPPE · INNOVE
+            </p>
+        </div>
+
+        <!-- PRÉSENTATION -->
+        <div class="footer-presentation">
+            <h3>Prêt à donner vie à tes idées ?</h3>
+            <p>
+                Rejoins l'univers Nexora et découvre
+                nos outils et ressources pour tes projets.
+            </p>
+
+            <button class="footer-cta" data-page="inscription">
+                Commencer maintenant
+                <span>→</span>
+            </button>
+        </div>
+
+        <!-- LIENS UTILES -->
+        <div class="footer-column">
+            <h4>Liens utiles</h4>
+            <button data-page="accueil">Accueil</button>
+            <button data-page="web">Création web</button>
+            <button data-page="pro">Tarifs PRO</button>
+            <button data-page="aide">À propos / Aide</button>
+        </div>
+
+        <!-- RESSOURCES -->
+        <div class="footer-column">
+            <h4>Ressources</h4>
+            <button data-page="ia">Intelligence artificielle</button>
+            <button data-page="jeux">Jeux vidéo</button>
+            <button data-page="createurs">Créateurs</button>
+            <a href="mailto:jflrdfq@gmail.com">Contact</a>
+        </div>
+
+        <!-- RÉSEAUX ET COPYRIGHT -->
+        <div class="footer-social">
+            <div class="footer-social-icons">
+                <a href="https://discord.com/"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Discord">D</a>
+
+                <a href="https://www.youtube.com/"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="YouTube">▶</a>
+
+                <a href="https://x.com/"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="X">𝕏</a>
+
+                <a href="https://www.instagram.com/"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Instagram">◎</a>
+            </div>
+
+            <a class="footer-contact"
+               href="mailto:jflrdfq@gmail.com">
+                jflrdfq@gmail.com
+            </a>
+
+            <p class="footer-copyright">
+                © <span id="footerYear"></span> Nexora.
+                Tous droits réservés.
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+
+
+<!-- =================================
+     JAVASCRIPT : NAVIGATION SANS RECHARGEMENT
+================================== -->
+
+<script>
+const navButtons = document.querySelectorAll(".nav-button");
+const pages = document.querySelectorAll(".page");
+const goButtons = document.querySelectorAll("[data-go]");
+
+function showPage(pageId) {
+    const targetPage = document.getElementById(pageId);
+
+    if (!targetPage) return;
+
+    // Masque toutes les pages
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
+
+    // Affiche la page choisie
+    targetPage.classList.add("active");
+
+    // Actualise l'onglet sélectionné
+    navButtons.forEach(button => {
+        const isActive = button.dataset.page === pageId;
+
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-current", isActive ? "page" : "false");
+    });
+
+    // Retour en haut sans recharger le site
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+// Clic sur les onglets
+navButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        showPage(button.dataset.page);
+    });
+});
+// Navigation des boutons de compte
+document.querySelectorAll(".account-button").forEach(button => {
+    button.addEventListener("click", () => {
+        showPage(button.dataset.page);
+    });
+});
+// Clic sur les boutons de l'accueil
+goButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        showPage(button.dataset.go);
+    });
+});
+
+// Année automatique dans le footer
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
+
+/* FORMULAIRE DE CONNEXION — SERVEUR FLASK */
+document.getElementById("loginForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = document.getElementById("loginEmail").value.trim();
+    const message = document.getElementById("loginMessage");
+    const button = event.currentTarget.querySelector('button[type="submit"]');
+    message.hidden = false;
+    message.textContent = "Connexion en cours…";
+    button.disabled = true;
+    try {
+        const response = await fetch("/api/login", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({email, password: document.getElementById("loginPassword").value})
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "Connexion impossible.");
+        document.getElementById("loginPassword").value = "";
+await refreshAccountStatus();
+showPage("accueil");
+    } catch (error) {
+        message.textContent = error.message || "Impossible de joindre le serveur. Vérifie que Flask est lancé.";
+    } finally {
+        button.disabled = false;
+    }
+});
+
+
+
+/* INSCRIPTION — CREATION REELLE VIA FLASK */
+document.getElementById("signupEmailForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = document.getElementById("signupEmail");
+    if (!email.checkValidity()) { email.reportValidity(); return; }
+    document.getElementById("signupStep1").hidden = true;
+    document.getElementById("signupStep2").hidden = false;
+    document.getElementById("signupUsername").focus();
+});
+
+/* Envoi de l'adresse, du pseudo et du mot de passe au serveur */
+document.getElementById("signupDetailsForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = document.getElementById("signupEmail").value.trim();
+    const username = document.getElementById("signupUsername").value.trim();
+    const password = document.getElementById("signupPassword").value;
+    const message = document.getElementById("signupMessage");
+    const button = event.currentTarget.querySelector('button[type="submit"]');
+    if (!event.currentTarget.checkValidity()) { event.currentTarget.reportValidity(); return; }
+    message.hidden = false;
+    message.textContent = "Création du compte…";
+    button.disabled = true;
+    try {
+        const response = await fetch("/api/register", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({email, username, password})
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "Création du compte impossible.");
+        message.textContent = "Compte créé ! Bienvenue " + data.username + ". Tu es maintenant connecté.";
+        document.getElementById("signupPassword").value = "";
+        await refreshAccountStatus();
+    } catch (error) {
+        message.textContent = error.message || "Impossible de joindre le serveur. Vérifie que Flask est lancé.";
+    } finally {
+        button.disabled = false;
+    }
+});
+
+
+async function refreshAccountStatus() {
+    try {
+        const response = await fetch("/api/me");
+        const data = await response.json();
+
+        const loginButton = document.getElementById("loginNavButton");
+        const signupButton = document.getElementById("signupNavButton");
+        const profileButton = document.getElementById("profileNavButton");
+        const profileUsername = document.getElementById("profileNavUsername");
+
+        if (!loginButton || !signupButton || !profileButton || !profileUsername) {
+            return;
+        }
+
+        if (data.logged_in) {
+            loginButton.hidden = true;
+            signupButton.hidden = true;
+            profileButton.hidden = false;
+            profileUsername.textContent = data.username;
+        } else {
+            loginButton.hidden = false;
+            signupButton.hidden = false;
+            profileButton.hidden = true;
+        }
+    } catch (error) {
+        console.error("Impossible de vérifier la connexion :", error);
+    }
+}
+
+refreshAccountStatus();
+
+
+/* LIENS DE NAVIGATION DU FOOTER */
+
+document.querySelectorAll(".nexora-footer [data-page]").forEach(button => {
+    button.addEventListener("click", () => {
+        showPage(button.dataset.page);
+    });
+});
+
+/* ANNEE AUTOMATIQUE */
+
+document.getElementById("footerYear").textContent =
+    new Date().getFullYear();
+
+const contrastToggle = document.getElementById("contrastToggle");
+const nexoraLogo = document.getElementById("nexoraLogo");
+
+if (contrastToggle) {
+    contrastToggle.addEventListener("click", function () {
+        document.body.classList.toggle("light-mode");
+
+        const isLight = document.body.classList.contains("light-mode");
+
+        // Changer le logo selon le thème
+        if (nexoraLogo) {
+            nexoraLogo.src = isLight
+                ? nexoraLogo.dataset.lightLogo
+                : nexoraLogo.dataset.darkLogo;
+        }
+
+        // Changer le texte du bouton
+        contrastToggle.textContent = isLight
+            ? "🌙 Mode sombre"
+            : "☀️ Mode clair";
+    });
+}
+</script>
+
+</body>
+</html>
